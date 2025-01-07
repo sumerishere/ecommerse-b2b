@@ -1,15 +1,18 @@
-import './styles/globals.css';
 import './App.css'
+import Home from './components/Home-page/Home';
+import LoginForm from './components/Login-form/LoginForm';
+import Registration from './components/Resistration-form/Registration';
 
 function App() {
-
   return (
-    <>
-    
-      <h1>Ecommerse B2B</h1>
-      
-    </>
-  )
+    <div>
+      <Home></Home>
+      <LoginForm></LoginForm>
+      <Registration></Registration>
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
