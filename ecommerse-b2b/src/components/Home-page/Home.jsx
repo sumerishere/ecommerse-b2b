@@ -1,17 +1,37 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-const Home = () => {
+const Home = ({ onLogout }) => {
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        onLogout();
+      };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <nav className="bg-white shadow">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-semibold text-gray-800">B2B Marketplace</h1>
+            <div className="display flex ">
+            <h1 className="text-xl font-semibold text-gray-800">Bulkify </h1>
+            <sub>B2B</sub>
+            </div>
+         
           <ul className="flex space-x-6 text-gray-600">
             <li><a href="#home" className="hover:text-blue-500">Home</a></li>
             <li><a href="#features" className="hover:text-blue-500">Features</a></li>
-            <li><a href="#about" className="hover:text-blue-500">About</a></li>
+            <li className="hover:text-blue-500"><Link to ="/Dashboard">Portfolio</Link></li>
+            <li className="hover:text-blue-500"><Link to="/AboutUs">AboutUs</Link></li>
             <li><a href="#contact" className="hover:text-blue-500">Contact</a></li>
+            <li>
+              <button 
+                onClick={handleLogout}
+                className="hover:text-blue-500 cursor-pointer"
+              >
+                Logout
+              </button>
+            </li>
           </ul>
         </div>
       </nav>
@@ -19,7 +39,7 @@ const Home = () => {
       {/* Hero Section */}
       <header className="bg-blue-500 text-white">
         <div className="container mx-auto px-6 py-20 text-center">
-          <h2 className="text-4xl font-bold mb-4">Welcome to Our B2B Marketplace</h2>
+          <h2 className="text-4xl font-bold mb-4">Welcome to Our B2B Bulkify Marketplace</h2>
           <p className="text-lg mb-6">Find the best products and services for your business needs.</p>
           <a
             href="#features"
