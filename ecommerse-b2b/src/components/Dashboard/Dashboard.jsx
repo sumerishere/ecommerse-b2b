@@ -36,10 +36,10 @@ const doughnutData = [
 ];
 
 const pieData = [
-  { name: "Automation", value: 500 },
-  { name: "Java", value: 300 },
-  { name: "UI/UX react", value: 200 },
-  { name: "Fullstack", value: 200 },
+  { name: "Electronics", value: 500 },
+  { name: "Shoes", value: 300 },
+  { name: "Home Equipments", value: 200 },
+  { name: "Snacks", value: 200 },
 ];
 
 const lineData = [
@@ -58,13 +58,13 @@ const lineData = [
 ];
 
 const dummyTableData = [
-  { id: 1, name: "John Doe", email: "john@example.com", status: "Active" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", status: "Pending" },
-  { id: 3, name: "Bob Johnson", email: "bob@example.com", status: "Inactive" },
-  { id: 4, name: "Alice Williams", email: "alice@example.com", status: "Active" },
-  { id: 5, name: "Jane Smith", email: "jane@example.com", status: "Pending" },
-  { id: 6, name: "Bob Johnson", email: "bob@example.com", status: "Inactive" },
-  { id: 7, name: "Alice Williams", email: "alice@example.com", status: "Active" },
+  { id: 1, name: "John Doe", email: "john@example.com", status: "Electronics" },
+  { id: 2, name: "Jane Smith", email: "jane@example.com", status: "Shoes" },
+  { id: 3, name: "Bob Johnson", email: "bob@example.com", status: "Snacks" },
+  { id: 4, name: "Alice Williams", email: "alice@example.com", status: "Shoes" },
+  { id: 5, name: "Jane Smith", email: "jane@example.com", status: "Home Equip" },
+  { id: 6, name: "Bob Johnson", email: "bob@example.com", status: "Office Equip" },
+  { id: 7, name: "Alice Williams", email: "alice@example.com", status: "General" },
 ];
 
 const Dashboard = () => {
@@ -178,7 +178,7 @@ const Dashboard = () => {
       {/* Table */}
       <div className="mt-8 bg-white shadow rounded-lg p-4">
         <h2 className="text-xl font-semibold mb-4">
-          User List
+          Customers List
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
@@ -187,7 +187,7 @@ const Dashboard = () => {
                 <th className="px-6 py-3">ID</th>
                 <th className="px-6 py-3">Name</th>
                 <th className="px-6 py-3">Email</th>
-                <th className="px-6 py-3">Status</th>
+                <th className="px-6 py-3">Product Category</th>
               </tr>
             </thead>
             <tbody>

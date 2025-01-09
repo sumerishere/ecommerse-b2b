@@ -86,18 +86,18 @@ const AboutUs = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Leadership Team</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
+            <div ><img className="w-34 h-75 bg-gray-300 rounded-full mx-auto mb-4" src="/images/person.jpg" alt="" /></div>
             <h3 className="text-xl font-semibold text-gray-800">Sarah Johnson</h3>
             <p className="text-gray-600">Chief Executive Officer</p>
           </div>
           <div className="text-center">
-            <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-semibold text-gray-800">Michael Chen</h3>
+          <div ><img className="w-34 h-46 bg-gray-300 rounded-full mx-auto mb-4" src="/images/person2.jpg" alt="" /></div>
+          <h3 className="text-xl font-semibold text-gray-800">Michael Chen</h3>
             <p className="text-gray-600">Chief Technology Officer</p>
           </div>
           <div className="text-center">
-            <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
-            <h3 className="text-xl font-semibold text-gray-800">Emily Rodriguez</h3>
+          <div ><img className="w-37 h-45 bg-gray-300 rounded-full mx-auto mb-4" src="/images/person3.jpg" alt="" /></div>
+          <h3 className="text-xl font-semibold text-gray-800">Emily Rodriguez</h3>
             <p className="text-gray-600">Chief Operations Officer</p>
           </div>
         </div>

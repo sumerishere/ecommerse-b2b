@@ -48,7 +48,7 @@ function App() {
   // Protected Route component
   const ProtectedRoute = ({ children }) => {
     if (!isAuthenticated) {
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/" replace />;
     }
     return children;
   };
@@ -67,14 +67,14 @@ function App() {
         pauseOnHover
       />
       <Routes>
-        <Route 
+        {/* <Route 
           path="/login" 
           element={
             isAuthenticated ? 
             <Navigate to="/" replace /> : 
             <LoginForm onLogin={handleLogin} />
           } 
-        />
+        /> */}
         
         <Route path="/SignUp" element={<Registration />} />
         
@@ -103,13 +103,17 @@ function App() {
         />
 
         <Route
+        path="/login"
+        element={<LoginForm/>}
+        />
+        {/* <Route
           path="*"
           element={
             isAuthenticated ? 
             <Navigate to="/" replace /> : 
             <Navigate to="/login" replace />
           }
-        />
+        /> */}
       </Routes>
     </Router>
   );

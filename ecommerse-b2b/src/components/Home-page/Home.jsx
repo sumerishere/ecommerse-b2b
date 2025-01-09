@@ -1,9 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
-
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const Home = ({ onLogout }) => {
 
@@ -40,18 +38,21 @@ const Home = ({ onLogout }) => {
             <input
               type="text"
               placeholder="Search for products, suppliers, and more"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
+              className="ml-5 w-half px-16 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
             />
+            <button className="w-half bg-blue-500 hover:bg-blue-600 text-white m-3 py-2 px-5 rounded-lg transition-colors duration-200">
+              Search
+            </button>
           </div>
 
           {/* Right Section */}
           <div className="flex items-center space-x-6 text-gray-600">
             {/* Login */}
-            <button className="hover:text-blue-500">Login</button>
+            <button className="hover:text-blue-500"><Link to="/login">Login</Link></button>
 
             {/* Become a Seller */}
             <div className="hover:text-blue-500 cursor-pointer">
-              <a href="/seller">Become a Seller</a>
+              <a href="/seller">My Products</a>
             </div>
 
             {/* More Dropdown */}
@@ -70,9 +71,10 @@ const Home = ({ onLogout }) => {
                 </svg>
               </button>
               {/* Dropdown Content */}
-              <div className="absolute hidden group-hover:block bg-white text-gray-700 rounded-md shadow-md mt-2">
+              <div className="absolute hidden group-hover:block bg-white text-gray-700 rounded-md shadow-md ">
                 <ul className="py-2">
-                  <li className="px-4 py-2 hover:bg-gray-500"><a href="/notifications">Notifications</a></li>
+                  <li className="px-4 py-2 hover:bg-gray-500"><Link to="/Dashboard">Portfolio</Link></li>
+                  <li className="px-4 py-2 hover:bg-gray-500"><Link to="/AboutUs">AboutUs</Link></li>
                   <li className="px-4 py-2 hover:bg-gray-500"><a href="/help">Help</a></li>
                 </ul>
               </div>
