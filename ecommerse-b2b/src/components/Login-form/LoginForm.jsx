@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, X } from "lucide-react";
 
 const VALID_CREDENTIALS = {
   email: "test@example.com",
   password: "password123"
 };
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ onLogin, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -57,10 +57,16 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <div className="relative w-full max-w-md bg-white bg-opacity-95 p-8 rounded-lg shadow-2xl transform transition-all">
-        <div className="absolute inset-0 bg-white opacity-90 rounded-lg -z-10"></div>
-        
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm z-50">
+      <div className="relative w-full max-w-md bg-white p-8 rounded-lg shadow-2xl">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
+        >
+          <X className="h-6 w-6" />
+        </button>
+
         <div className="relative z-10">
           <h1 className="text-2xl font-semibold text-center text-gray-800 mb-6">Welcome back to Bulkify!</h1>
           
@@ -72,11 +78,12 @@ const LoginForm = ({ onLogin }) => {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white bg-opacity-90"
+                className="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
               />
+              {emailError && <p className="mt-1 text-xs text-red-500">{emailError}</p>}
             </div>
 
             <div className="mb-4">
@@ -87,7 +94,7 @@ const LoginForm = ({ onLogin }) => {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
-                  className="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white bg-opacity-90"
+                  className="w-full px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
@@ -104,6 +111,7 @@ const LoginForm = ({ onLogin }) => {
                   )}
                 </button>
               </div>
+              {passwordError && <p className="mt-1 text-xs text-red-500">{passwordError}</p>}
             </div>
 
             {loginError && (

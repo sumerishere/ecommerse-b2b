@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom"
+import Scroller from "../Infinite-scroller/Scroller";
+import LoginForm from "../Login-form/LoginForm";
 
 const Home = ({ onLogout }) => {
+
+  const [loginClicked, setLoginClicked] = useState(false);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -21,8 +25,14 @@ const Home = ({ onLogout }) => {
     autoplaySpeed: 3000,
   };
 
+  const handleClickLogin = () => {
+    setLoginClicked(true)
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+
+      {loginClicked && <LoginForm onClose={() => setLoginClicked(false)} />}
       {/* Navbar */}
       <nav className="bg-white shadow sticky top-0 z-50">
         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
@@ -48,7 +58,8 @@ const Home = ({ onLogout }) => {
           {/* Right Section */}
           <div className="flex items-center space-x-6 text-gray-600">
             {/* Login */}
-            <button className="hover:text-blue-500"><Link to="/login">Login</Link></button>
+            <button className="hover:text-blue-500"
+            onClick={handleClickLogin}>Login</button>
 
             {/* Become a Seller */}
             <div className="hover:text-blue-500 cursor-pointer">
@@ -233,6 +244,8 @@ const Home = ({ onLogout }) => {
           </div>
         </div>
       </section>
+
+      <Scroller/>
 
 
       {/* About Section */}
