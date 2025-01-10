@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import AboutUs from './components/About-us/AboutUs';
 import SellerDashboard from './components/Seller/SellerDashboard';
 import AddProductForm from "./components/AddProduct/AddProductForm"
+import ElectronicItems from './components/Categories/ElectronicIteams';
 
 // Static credentials for temporary authentication
 const VALID_CREDENTIALS = {
@@ -69,14 +70,7 @@ function App() {
         pauseOnHover
       />
       <Routes>
-        {/* <Route 
-          path="/login" 
-          element={
-            isAuthenticated ? 
-            <Navigate to="/" replace /> : 
-            <LoginForm onLogin={handleLogin} />
-          } 
-        /> */}
+   
         
         <Route path="/SignUp" element={<Registration />} />
         
@@ -116,19 +110,16 @@ function App() {
           path="/Registration"
           element={<Registration/>}
         />
+        <Route
+          path="/electronicItems"
+          element={<ElectronicItems></ElectronicItems>}
+        />
 
         <Route
         path="/login"
         element={<LoginForm/>}
         />
-        {/* <Route
-          path="*"
-          element={
-            isAuthenticated ? 
-            <Navigate to="/" replace /> : 
-            <Navigate to="/login" replace />
-          }
-        /> */}
+     
       </Routes>
     </Router>
   );
