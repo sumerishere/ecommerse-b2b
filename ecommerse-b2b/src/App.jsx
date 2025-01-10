@@ -8,6 +8,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from './components/Dashboard/Dashboard';
 import AboutUs from './components/About-us/AboutUs';
+import SellerDashboard from './components/Seller/SellerDashboard';
+import AddProductForm from "./components/AddProduct/AddProductForm"
 
 // Static credentials for temporary authentication
 const VALID_CREDENTIALS = {
@@ -95,6 +97,19 @@ function App() {
        <Route
         path="/AboutUs"
         element =  {<AboutUs/>}
+       />
+
+       <Route
+
+       path="/seller"
+       element={<SellerDashboard/>}
+       
+       />
+
+       <Route
+       path = "/AddProduct"
+       element={<AddProductForm/>}
+       
        />
 
         <Route

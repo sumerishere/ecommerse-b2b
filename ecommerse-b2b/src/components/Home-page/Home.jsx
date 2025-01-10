@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { useState } from "react";
 import Slider from "react-slick";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom"
@@ -44,26 +45,27 @@ const Home = ({ onLogout }) => {
           </div>
 
           {/* Search Bar */}
-          <div className="flex-grow mx-4">
+          <div className="flex-grow mx-4 relative ml-20 mr-20">
             <input
               type="text"
               placeholder="Search for products, suppliers, and more"
-              className="ml-5 w-half px-16 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
+              className="w-full px-10 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
             />
-            <button className="w-half bg-blue-500 hover:bg-blue-600 text-white m-3 py-2 px-5 rounded-lg transition-colors duration-200">
-              Search
-            </button>
+            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+              <i className="fas fa-search text-gray-400"></i>
+            </div>
           </div>
+
 
           {/* Right Section */}
           <div className="flex items-center space-x-6 text-gray-600">
             {/* Login */}
             <button className="hover:text-blue-500"
-            onClick={handleClickLogin}>Login</button>
+              onClick={handleClickLogin}>Login</button>
 
             {/* Become a Seller */}
             <div className="hover:text-blue-500 cursor-pointer">
-              <a href="/seller">My Products</a>
+              <Link to="/seller">Becom a seller</Link>
             </div>
 
             {/* More Dropdown */}
@@ -145,7 +147,7 @@ const Home = ({ onLogout }) => {
 
 
       {/* Categories Section */}
-      <section id="categories" className="py-20 bg-gray-100">
+      <section id="categories" className="py-10 bg-gray-100">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold mb-8">Product Categories</h3>
           <div className="flex flex-wrap justify-center gap-8">
@@ -199,7 +201,7 @@ const Home = ({ onLogout }) => {
 
 
       {/* Features Section */}
-      <section id="features" className="py-20 ">
+      <section id="features" className="py-10 ">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold mb-8">Our Features</h3>
           <div className="flex flex-wrap justify-center gap-8">
@@ -245,11 +247,11 @@ const Home = ({ onLogout }) => {
         </div>
       </section>
 
-      <Scroller/>
+      <Scroller />
 
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-100">
+      <section id="about" className="py-10 bg-gray-100">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-4xl font-extrabold mb-6 text-indigo-900">About Us</h3>
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
@@ -267,7 +269,7 @@ const Home = ({ onLogout }) => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="py-10 bg-gray-50">
         <div className="container mx-auto px-6 text-center">
           <h3 className="text-4xl font-extrabold mb-6 text-blue-700">Get in Touch</h3>
           <p className="text-lg text-gray-600 mb-6">
@@ -290,7 +292,7 @@ const Home = ({ onLogout }) => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-10">
+      <footer className="bg-gray-900 text-gray-300 py-5">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-between items-center">
             <div className="text-center lg:text-left">
