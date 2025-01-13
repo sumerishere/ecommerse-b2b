@@ -15,6 +15,7 @@ import {
   Truck,
   Headphones
 } from 'lucide-react';
+import AddProductForm from '../AddProduct/AddProductForm';
 
 const SellerDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -88,6 +89,7 @@ const SellerDashboard = () => {
   ];
 
   return (
+   
     <div className="min-h-screen bg-gray-100">
       {/* Top Navigation */}
       <nav className="bg-blue-600 text-white p-4">

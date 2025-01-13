@@ -5,8 +5,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom"
 import Scroller from "../Infinite-scroller/Scroller";
 import LoginForm from "../Login-form/LoginForm";
+import "./Home.css";
 
-const Home = ({ onLogout }) => {
+const Home = ({ onLogout, cart }) => {
 
   const [loginClicked, setLoginClicked] = useState(false);
 
@@ -40,7 +41,6 @@ const Home = ({ onLogout }) => {
           {/* Logo and Tagline */}
           <div className="flex">
             <h1 className="text-xl font-semibold text-gray-800">Bulkify</h1>
-            {/* <span className="text-sm text-gray-600">B2B</span> */}
             <sub className="text-blue-500">B2B</sub>
           </div>
 
@@ -56,21 +56,29 @@ const Home = ({ onLogout }) => {
             </div>
           </div>
 
-
           {/* Right Section */}
           <div className="flex items-center space-x-6 text-gray-600">
             {/* Login */}
-            <button className="hover:text-blue-500"
-              onClick={handleClickLogin}>Login</button>
+            <button className="hover:text-blue-500 flex items-center space-x-2" onClick={handleClickLogin}>
+              <i className="fas fa-user-tie"></i>
+              <span>Login</span>
+            </button>
 
             {/* Become a Seller */}
-            <div className="hover:text-blue-500 cursor-pointer">
-              <Link to="/seller">Becom a seller</Link>
+            <div className="hover:text-blue-500 cursor-pointer flex items-center space-x-2">
+              <img
+                src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/Store-9eeae2.svg"
+                alt="Become a Seller Icon"
+                className="w-6 h-6"
+              />
+              <Link to="/seller">Become a Seller</Link>
             </div>
+
 
             {/* More Dropdown */}
             <div className="relative group">
-              <button className="hover:text-blue-500 flex items-center space-x-1">
+              <button className="hover:text-blue-500 flex items-center space-x-2">
+                {/* <i className="fas fa-ellipsis-h"></i> */}
                 <span>More</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,35 +92,40 @@ const Home = ({ onLogout }) => {
                 </svg>
               </button>
               {/* Dropdown Content */}
-              <div className="absolute hidden group-hover:block bg-white text-gray-700 rounded-md shadow-md ">
-                <ul className="py-2">
-                  <li className="px-4 py-2 hover:bg-gray-500"><Link to="/Dashboard">Portfolio</Link></li>
-                  <li className="px-4 py-2 hover:bg-gray-500"><Link to="/AboutUs">AboutUs</Link></li>
-                  <li className="px-4 py-2 hover:bg-gray-500"><a href="/help">Help</a></li>
-                </ul>
-              </div>
+              <div className="absolute hidden group-hover:block bg-white text-gray-800 rounded-md shadow-lg w-40 left-1/2 -translate-x-1/2">
+  <ul className="py-2">
+    <li className="px-4 py-2 hover:bg-blue-500 hover:text-white flex items-center space-x-2 transition-all duration-200">
+      <i className="fas fa-briefcase"></i>
+      <Link to="/Dashboard">Portfolio</Link>
+    </li>
+    <li className="px-4 py-2 hover:bg-blue-500 hover:text-white flex items-center space-x-2 transition-all duration-200">
+      <i className="fas fa-info-circle"></i>
+      <Link to="/AboutUs">About Us</Link>
+    </li>
+    <li className="px-4 py-2 hover:bg-blue-500 hover:text-white flex items-center space-x-2 transition-all duration-200">
+      <i className="fas fa-question-circle"></i>
+      <a href="/help">Help</a>
+    </li>
+  </ul>
+</div>
+
             </div>
+
 
             {/* Cart */}
             <div className="relative">
-              <button className="hover:text-blue-500 flex items-center space-x-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l3.6-7H6.4M7 13l-1.35 5.4M17 13l1.35 5.4M7 13h10M7 13L6.4 8m10 5l.6-5M6.4 8h12.2" />
-                </svg>
+              <Link to="/cart" className="hover:text-blue-500 flex items-center space-x-2">
+                <i className="fas fa-shopping-cart"></i>
                 <span>Cart</span>
-              </button>
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">2</span>
+              </Link>
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                {cart.length}
+              </span>
             </div>
           </div>
         </div>
       </nav>
+
 
       {/* Carousel Section */}
       <section id="carousel" className="py-10">
@@ -120,21 +133,21 @@ const Home = ({ onLogout }) => {
           <Slider {...carouselSettings}>
             <div className="h-60">
               <img
-                src="https://community.arm.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-21-42/Samsung-phones-Galaxy-S10.jpg"
+                src="	https://rukminim2.flixcart.com/fk-p-flap/1010/170/image/ebe650f1bd18e588.jpg?q=20"
                 alt="Featured Product 1"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="h-60">
               <img
-                src="https://www.jarir.com/cdn-cgi/image/fit=contain,width=1190,height=auto,quality=85,metadata=none/https://wps-media.jarir.com/wp-content/uploads/2023/12/mb-kas-041223-laptop-offer-en.jpg"
+                src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/53dcf24ecc20bf27.jpg?q=20"
                 alt="Featured Product 2"
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="h-60">
               <img
-                src="https://images.samsung.com/in/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-color-titanium-blue-side-mo.jpg?imbypass=true"
+                src="	https://rukminim2.flixcart.com/fk-p-flap/1010/170/image/1e5f2e97e448cee0.jpg?q=20"
                 alt="Featured Product 3"
                 className="w-full h-full object-contain"
               />
@@ -201,51 +214,52 @@ const Home = ({ onLogout }) => {
 
 
       {/* Features Section */}
-      <section id="features" className="py-10 ">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold mb-8">Our Features</h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {/* Wide Product Range */}
-            <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/2 lg:w-1/3 transition-transform transform hover:scale-105">
-              <div className="flex flex-col items-center mb-4">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/3388/3388819.png"
-                  alt="Wide Product Range Icon"
-                  className="w-16 h-16 mb-4"
-                />
-                <h4 className="text-xl font-semibold mb-2">Wide Product Range</h4>
-                <p className="text-gray-600 text-center">Access thousands of products tailored to your industry.</p>
-              </div>
-            </div>
-
-            {/* Verified Suppliers */}
-            <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/2 lg:w-1/3 transition-transform transform hover:scale-105">
-              <div className="flex flex-col items-center mb-4">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
-                  alt="Verified Suppliers Icon"
-                  className="w-16 h-16 mb-4"
-                />
-                <h4 className="text-xl font-semibold mb-2">Verified Suppliers</h4>
-                <p className="text-gray-600 text-center">Connect with trusted and reliable suppliers.</p>
-              </div>
-            </div>
-
-            {/* Easy Integration */}
-            <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/2 lg:w-1/3 transition-transform transform hover:scale-105">
-              <div className="flex flex-col items-center mb-4">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/3063/3063823.png"
-                  alt="Easy Integration Icon"
-                  className="w-16 h-16 mb-4"
-                />
-                <h4 className="text-xl font-semibold mb-2">Easy Integration</h4>
-                <p className="text-gray-600 text-center">Seamless process to connect and collaborate with partners.</p>
-              </div>
-            </div>
-          </div>
+      <section id="features" className="py-10">
+  <div className="container mx-auto px-6 text-center">
+    <h3 className="text-3xl font-bold mb-8">Our Features</h3>
+    <div className="flex flex-wrap justify-center gap-8">
+      {/* Wide Product Range */}
+      <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/3 lg:w-1/4 transition-transform transform hover:scale-105">
+        <div className="flex flex-col items-center mb-4">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3388/3388819.png"
+            alt="Wide Product Range Icon"
+            className="w-16 h-16 mb-4"
+          />
+          <h4 className="text-xl font-semibold mb-2">Wide Product Range</h4>
+          <p className="text-gray-600 text-center">Access thousands of products tailored to your industry.</p>
         </div>
-      </section>
+      </div>
+
+      {/* Verified Suppliers */}
+      <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/3 lg:w-1/4 transition-transform transform hover:scale-105">
+        <div className="flex flex-col items-center mb-4">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
+            alt="Verified Suppliers Icon"
+            className="w-16 h-16 mb-4"
+          />
+          <h4 className="text-xl font-semibold mb-2">Verified Suppliers</h4>
+          <p className="text-gray-600 text-center">Connect with trusted and reliable suppliers.</p>
+        </div>
+      </div>
+
+      {/* Easy Integration */}
+      <div className="bg-white p-6 shadow-lg rounded-lg w-full sm:w-1/3 lg:w-1/4 transition-transform transform hover:scale-105">
+        <div className="flex flex-col items-center mb-4">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3063/3063823.png"
+            alt="Easy Integration Icon"
+            className="w-16 h-16 mb-4"
+          />
+          <h4 className="text-xl font-semibold mb-2">Easy Integration</h4>
+          <p className="text-gray-600 text-center">Seamless process to connect and collaborate with partners.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <Scroller />
 

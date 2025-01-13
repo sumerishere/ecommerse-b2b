@@ -4,6 +4,7 @@ const AddProductForm = () => {
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  // const [closeAddProduct, setCloseAddProduct] = useState("false")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +19,9 @@ const AddProductForm = () => {
     setPrice("");
     setDescription("");
   };
+  const handleClose = () => {
+    setCloseAddProduct(true)
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
@@ -26,7 +30,7 @@ const AddProductForm = () => {
         <button
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
           aria-label="Close"
-          // onClick={onClose}
+          // onClick={handleClose}
         >
           ✖
         </button>
@@ -115,7 +119,7 @@ const AddProductForm = () => {
             <div className="flex space-x-4">
               <button
                 type="button"
-                // onClick={onClose}
+                // onClick={handleClose}
                 className="bg-gray-300 text-gray-700 px-4 py-1 rounded hover:bg-gray-400 shadow"
               >
                 Cancel
