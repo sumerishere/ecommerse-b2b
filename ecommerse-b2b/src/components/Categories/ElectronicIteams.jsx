@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { toast } from "react-toastify";
 const items = [
   {
     id: 9,
@@ -85,28 +86,28 @@ const items = [
 ];
 
 // Function to shorten description text
-const shortenDescription = (description, maxLength = 100) => {
-  return description.length > maxLength ? description.substring(0, maxLength) + "..." : description;
-};
+// const shortenDescription = (description, maxLength = 100) => {
+//   return description.length > maxLength ? description.substring(0, maxLength) + "..." : description;
+// };
 
-const ElectronicItems = () => {
+const ElectronicItems = ({ cart, setCart }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Filtered items based on search query
-  const filteredItems = items.filter(
-    (item) =>
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) 
-      // item.description.toLowerCase().includes(searchQuery.toLowerCase())
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
+    toast.success("Product Added")
+    console.log(cart);
+  };
+
+  const filteredItems = items.filter((item) =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="p-6">
-      {/* Page Heading */}
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Our Electronic Products
       </h1>
-
-      {/* Search Bar */}
       <div className="mb-6 flex justify-center">
         <div className="relative w-96">
           <input
@@ -116,35 +117,25 @@ const ElectronicItems = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
             <i className="fas fa-search text-gray-400"></i>
           </div>
         </div>
       </div>
-
-
-      {/* Items Grid */}
       <div className="flex flex-wrap justify-center gap-6">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col bg-white rounded-lg shadow-lg max-w-xs w-full transition-transform transform hover:scale-105 hover:shadow-xl"
-            >
-              {/* Image Section */}
+            <div key={item.id} className="flex flex-col bg-white rounded-lg shadow-lg max-w-xs w-full">
               <div className="w-full h-48 overflow-hidden mt-4">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-contain"
-                />
+                <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
               </div>
-
-              {/* Product Details */}
               <div className="p-3 flex flex-col justify-between flex-grow">
                 <h2 className="text-md font-semibold text-gray-800">{item.title}</h2>
-                <p className="text-xs text-gray-500 mt-2">{shortenDescription(item.description)}</p>
+                <p className="text-xs text-gray-500 mt-2">
+                  {item.description.length > 100
+                    ? `${item.description.substring(0, 100)}...`
+                    : item.description}
+                </p>
                 <div className="flex justify-between items-center mt-4">
                   <span className="text-green-600 font-semibold text-md">${item.price}</span>
                   <div className="flex items-center">
@@ -152,9 +143,10 @@ const ElectronicItems = () => {
                     <span className="text-gray-400 ml-2">({item.rating.count} reviews)</span>
                   </div>
                 </div>
-
-                {/* Add to Cart Button */}
-                <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200">
+                <button
+                  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+                  onClick={() => addToCart(item)}
+                >
                   Add to Cart
                 </button>
               </div>
