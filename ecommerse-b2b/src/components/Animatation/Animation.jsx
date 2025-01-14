@@ -24,7 +24,7 @@ const Animation = () => {
             Bulkify B2B
           </text>
           <text x="20" y="40" fill="white" font-size="13">
-           Ready to Deliver
+           Ready! to Deliver
           </text>
         </g>
 
