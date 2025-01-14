@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import { Eye, EyeOff, Building2, Users, TrendingUp, Package, Truck, BarChart3 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 const Registration = () => {
     // ... [Keep all the existing state and handlers]
@@ -16,6 +18,7 @@ const Registration = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,6 +60,11 @@ const Registration = () => {
                 password: '',
                 confirmPassword: '',
             });
+
+            setTimeout(() => {
+                navigate('/');
+              },3000);
+      
         } catch (err) {
             toast.error('Something went wrong!!');
         } finally {

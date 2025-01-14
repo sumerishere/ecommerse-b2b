@@ -2,76 +2,44 @@ import "./Scroller.css";
 
 const Scroller = () => {
   const companies = [
-    { 
-      name: "Microsoft", 
-      logo: "https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg"
-    },
-    { 
-      name: "Salesforce", 
-      logo: "https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg"
-    },
-    { 
-      name: "Oracle", 
-      logo: "https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg"
-    },
-    { 
-      name: "SAP", 
-      logo: "https://www.vectorlogo.zone/logos/sap/sap-icon.svg"
-    },
-    { 
-      name: "IBM", 
-      logo: "https://www.vectorlogo.zone/logos/ibm/ibm-icon.svg"
-    },
-    { 
-      name: "Adobe", 
-      logo: "https://www.vectorlogo.zone/logos/adobe/adobe-icon.svg"
-    },
-    { 
-      name: "Cisco", 
-      logo: "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg"
-    },
-    { 
-      name: "ServiceNow", 
-      logo: "https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg"
-    },
-    { 
-      name: "VMware", 
-      logo: "https://www.vectorlogo.zone/logos/vmware/vmware-icon.svg"
-    },
-    { 
-      name: "Workday", 
-      logo: "https://www.vectorlogo.zone/logos/workday/workday-icon.svg"
-    }
+    { name: "Microsoft", logo: "https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" },
+    { name: "Salesforce", logo: "https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg" },
+    { name: "Oracle", logo: "https://www.vectorlogo.zone/logos/oracle/oracle-icon.svg" },
+    { name: "SAP", logo: "https://www.vectorlogo.zone/logos/sap/sap-icon.svg" },
+    { name: "IBM", logo: "https://www.vectorlogo.zone/logos/ibm/ibm-icon.svg" },
+    { name: "Adobe", logo: "https://www.vectorlogo.zone/logos/adobe/adobe-icon.svg" },
+    { name: "Cisco", logo: "https://www.vectorlogo.zone/logos/cisco/cisco-icon.svg" },
+    { name: "ServiceNow", logo: "https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg" },
+    { name: "VMware", logo: "https://www.vectorlogo.zone/logos/vmware/vmware-icon.svg" },
+    { name: "Workday", logo: "https://www.vectorlogo.zone/logos/workday/workday-icon.svg" },
   ];
 
-  // Double the array to create seamless infinite scroll effect
   const duplicatedCompanies = [...companies, ...companies];
 
-  // Enhanced error handling for broken images
   const handleImageError = (e) => {
-    // Fallback to company initials if image fails to load
-    const company = e.target.alt.split(' ')[0]; // Get company name from alt text
+    const company = e.target.alt.split(' ')[0];
     const canvas = document.createElement('canvas');
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext('2d');
-    
-    // Draw background
-    ctx.fillStyle = '#f3f4f6'; // gray-100
+
+    ctx.fillStyle = '#f3f4f6';
     ctx.fillRect(0, 0, 64, 64);
-    
-    // Draw text
-    ctx.fillStyle = '#3b82f6'; // blue-500
+
+    ctx.fillStyle = '#3b82f6';
     ctx.font = 'bold 24px Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(company[0], 32, 32); // First letter of company name
-    
+    ctx.fillText(company[0], 32, 32);
+
     e.target.src = canvas.toDataURL();
   };
 
   return (
-    <div className="w-full bg-white rounded-md shadow-lg p-4 overflow-hidden">
+    <div className="w-full bg-white rounded-md shadow-lg mt-10 p-4 overflow-hidden">
+      <h1 className="text-3xl font-bold text-blue-600 text-center mb-10">
+        Our Clients
+      </h1>
       <div className="relative">
         <div className="overflow-hidden">
           <div className="flex animate-scroll whitespace-nowrap">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import {
   BarChart3,
   Package,
@@ -19,7 +19,7 @@ import AddProductForm from '../AddProduct/AddProductForm';
 
 const SellerDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
-
+  const navigate = useNavigate();
   const recentOrders = [
     { id: '1', product: 'Wireless Earbuds', price: 1999, status: 'Processing' },
     { id: '2', product: 'Smart Watch', price: 2499, status: 'Shipped' },
@@ -107,13 +107,19 @@ const SellerDashboard = () => {
         {/* Search and Stats sections remain the same */}
         <div className="mb-6 ">
 
-          <Link
+          {/* <Link
             to="/AddProduct"
             className="ml-4 bg-blue-600 text-white px-4 py-2 rounded-lg inline-flex items-center"
           >
             <Plus className="h-5 w-5 mr-2" />
             Add Product
-          </Link>
+          </Link> */}
+          <button 
+        onClick={() => navigate('/AddProduct')}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+       + Add New Product
+      </button>
 
         </div>
 

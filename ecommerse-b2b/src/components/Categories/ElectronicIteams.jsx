@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 const items = [
   {
     id: 9,
@@ -143,12 +144,24 @@ const ElectronicItems = ({ cart, setCart }) => {
                     <span className="text-gray-400 ml-2">({item.rating.count} reviews)</span>
                   </div>
                 </div>
-                <button
-                  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-                  onClick={() => addToCart(item)}
-                >
-                  Add to Cart
-                </button>
+                {
+                  cart.some((cartItem) => cartItem.id === item.id) ? (
+                    <Link
+                      to="/cart"
+                      className="mt-4 bg-gradient-to-r from-gray-600 to-gray-500 text-white py-2 px-4 rounded-md hover:from-gray-500 hover:to-gray-400 shadow-lg transition duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                    >
+                      <i className="fas fa-shopping-cart"></i> Go to Cart
+                    </Link>
+                  ) : (
+                    <button
+                      className="mt-4 bg-gradient-to-r from-blue-500 to-blue-400 text-white py-2 px-4 rounded-md hover:from-blue-600 hover:to-blue-500 shadow-lg transition duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      onClick={() => addToCart(item)}
+                    >
+                      <i className="fas fa-plus"></i> Add to Cart
+                    </button>
+                  )
+                }
+
               </div>
             </div>
           ))

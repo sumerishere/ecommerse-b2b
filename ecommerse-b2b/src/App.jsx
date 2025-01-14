@@ -12,10 +12,10 @@ import AddProductForm from "./components/AddProduct/AddProductForm";
 import ElectronicItems from './components/Categories/ElectronicIteams';
 import CartPage from './components/Cart/CartPage';
 
-const VALID_CREDENTIALS = {
-  email: "test@example.com",
-  password: "password123"
-};
+// const VALID_CREDENTIALS = {
+//   email: "test@example.com",
+//   password: "password123"
+// };
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,17 +28,17 @@ function App() {
     }
   }, []);
 
-  const handleLogin = (credentials) => {
-    if (credentials.email === VALID_CREDENTIALS.email && 
-        credentials.password === VALID_CREDENTIALS.password) {
-      setIsAuthenticated(true);
-      localStorage.setItem('isAuthenticated', 'true');
-      toast.success('Login successful!');
-      return true;
-    }
-    toast.error('Invalid email or password');
-    return false;
-  };
+  // const handleLogin = (credentials) => {
+  //   if (credentials.email === VALID_CREDENTIALS.email && 
+  //       credentials.password === VALID_CREDENTIALS.password) {
+  //     setIsAuthenticated(true);
+  //     localStorage.setItem('isAuthenticated', 'true');
+  //     toast.success('Login successful!');
+  //     return true;
+  //   }
+  //   toast.error('Invalid email or password');
+  //   return false;
+  // };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -69,7 +69,11 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/seller" element={<SellerDashboard />} />
-        <Route path="/AddProduct" element={<AddProductForm />} />
+        <Route path="/AddProduct" 
+            element={ 
+                        <AddProductForm />
+                     
+                  } />
         <Route path="/Registration" element={<Registration />} />
         <Route
           path="/electronicItems"
@@ -77,6 +81,8 @@ function App() {
         />
         <Route path="/cart" element={<CartPage cart={cart} setCart={setCart}/>} />
         <Route path="/login" element={<LoginForm />} />
+
+      
       </Routes>
     </Router>
   );
