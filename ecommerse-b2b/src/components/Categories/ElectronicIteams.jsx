@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { toast } from "react-toastify";
+
 import { Link } from "react-router-dom";
 const items = [
   {
@@ -106,6 +107,7 @@ const ElectronicItems = ({ cart, setCart }) => {
 
   return (
     <div className="p-6">
+      
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Our Electronic Products
       </h1>

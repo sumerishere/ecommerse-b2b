@@ -206,7 +206,7 @@ const SellerDashboard = () => {
           }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 10s linear infinite;
         }
       `}</style>
         </div>
