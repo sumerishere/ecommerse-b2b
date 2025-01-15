@@ -6,17 +6,56 @@ const ChatbotContainer = () => {
   const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([
-    { type: 'bot', content: 'Hello! How can I help you with your B2B needs today?' }
+    { 
+      type: 'bot', 
+      content: 'Hello! How can I help you with your B2B needs today?',
+      timestamp: new Date(),
+      options: [
+        { text: 'What Bulkify do?', handler: 'showBulkifyInfo' }
+      ]
+    }
   ]);
+
+  const formatTimestamp = (date) => {
+    return date.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
+  };
+
+  const handleOptionClick = (handler) => {
+    if (handler === 'showBulkifyInfo') {
+      setChatHistory(prev => [...prev, 
+        { 
+          type: 'user', 
+          content: 'What Bulkify do?',
+          timestamp: new Date()
+        },
+        { 
+          type: 'bot', 
+          content: 'Bulkify is a leading B2B e-commerce platform that connects businesses worldwide. We provide seamless bulk ordering services, competitive wholesale pricing, and reliable supply chain solutions. Our platform helps businesses grow by simplifying procurement and expanding their market reach.',
+          timestamp: new Date()
+        }
+      ]);
+    }
+  };
 
   const handleSend = () => {
     if (message.trim()) {
-      setChatHistory([...chatHistory, { type: 'user', content: message }]);
+      setChatHistory([...chatHistory, { 
+        type: 'user', 
+        content: message,
+        timestamp: new Date()
+      }]);
       // Simulate bot response
       setTimeout(() => {
         setChatHistory(prev => [...prev, { 
           type: 'bot', 
-          content: 'Thanks for your message. A customer service representative will respond shortly.' 
+          content: 'Thanks for your message. A customer service representative will respond shortly.',
+          timestamp: new Date()
         }]);
       }, 1000);
       setMessage('');
@@ -49,7 +88,7 @@ const ChatbotContainer = () => {
       <div className="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <BotMessageSquare className="w-5 h-5" />
-          <span className="font-medium">Bulkify Support </span>
+          <span className="font-medium">Bulkify Support</span>
         </div>
         <div className="flex space-x-2">
           <button 
@@ -72,19 +111,40 @@ const ChatbotContainer = () => {
           {/* Chat Messages */}
           <div className="p-4 h-64 overflow-y-auto space-y-4">
             {chatHistory.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex ${msg.type}` === 'user' ? 'justify-end' : 'justify-start'}
-              >
+              <div key={index}>
                 <div
-                  className={`max-w-80%] p-4 rounded-lg ${
-                    msg.type === 'user'
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}
+                  className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  {msg.content}
+                  <div className="max-w-[80%]">
+                    <div
+                      className={`p-3 rounded-lg ${
+                        msg.type === 'user'
+                          ? 'bg-blue-500 text-white'
+                          : 'bg-gray-100 text-gray-800'
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                    <div className={`text-xs text-gray-500 mt-1 ${
+                      msg.type === 'user' ? 'text-right' : 'text-left'
+                    }`}>
+                      {formatTimestamp(msg.timestamp)}
+                    </div>
+                  </div>
                 </div>
+                {msg.options && (
+                  <div className="mt-2">
+                    {msg.options.map((option, optionIndex) => (
+                      <button
+                        key={optionIndex}
+                        onClick={() => handleOptionClick(option.handler)}
+                        className="mt-2 px-4 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors"
+                      >
+                        {option.text}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
