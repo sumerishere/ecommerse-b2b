@@ -20,10 +20,10 @@ const Animation = () => {
           <rect x="120" y="20" width="40" height="40" fill="#3b82f6" rx="5" />
           <circle cx="30" cy="60" r="15" fill="#1e3a8a" />
           <circle cx="90" cy="60" r="15" fill="#1e3a8a" />
-          <text x="20" y="20" fill="white" font-size="10">
+          <text x="12" y="16" fill="white" font-size="10">
             Bulkify B2B
           </text>
-          <text x="20" y="40" fill="white" font-size="13">
+          <text x="12" y="36" fill="white" font-size="13">
            Ready! to Deliver
           </text>
         </g>
