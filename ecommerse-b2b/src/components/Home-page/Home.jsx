@@ -57,10 +57,10 @@ const Home = ({ onLogout, cart }) => {
 
       {loginClicked && <LoginForm onClose={() => setLoginClicked(false)} />}
       {/* Navbar */}
-      <nav className="bg-white shadow sticky top-0 z-50">
+      <nav className="bg-gray-100 shadow sticky top-0 z-50">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo and Tagline */}
-        <div className="flex items-center space-x-2">
+        <div className="flex">
           <h1 className="text-xl font-semibold text-gray-800">Bulkify</h1>
           <sub className="text-blue-500">B2B</sub>
         </div>

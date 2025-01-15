@@ -11,6 +11,7 @@ import SellerDashboard from './components/Seller/SellerDashboard';
 import AddProductForm from "./components/AddProduct/AddProductForm";
 import ElectronicItems from './components/Categories/ElectronicIteams';
 import CartPage from './components/Cart/CartPage';
+import ChatbotContainer from "./components/Chat-bot/ChatBot"; 
 
 // const VALID_CREDENTIALS = {
 //   email: "test@example.com",
@@ -84,6 +85,7 @@ function App() {
 
       
       </Routes>
+      <ChatbotContainer/>
     </Router>
   );
 }
