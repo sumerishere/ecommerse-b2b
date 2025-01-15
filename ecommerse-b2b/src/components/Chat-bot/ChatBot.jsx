@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, Minimize2, X, ChevronUp } from 'lucide-react';
+import { BotMessageSquare, Send, Minimize2, X, ChevronUp } from 'lucide-react';
 
 const ChatbotContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ const ChatbotContainer = () => {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200"
       >
-        <MessageCircle className="w-6 h-6" />
+        <BotMessageSquare className="w-6 h-6" />
       </button>
     );
   }
@@ -48,7 +48,7 @@ const ChatbotContainer = () => {
       {/* Header */}
       <div className="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <MessageCircle className="w-5 h-5" />
+          <BotMessageSquare className="w-5 h-5" />
           <span className="font-medium">Bulkify Support </span>
         </div>
         <div className="flex space-x-2">
