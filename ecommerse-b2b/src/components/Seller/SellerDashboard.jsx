@@ -15,11 +15,11 @@ import {
   Truck,
   Headphones
 } from 'lucide-react';
-import AddProductForm from '../AddProduct/AddProductForm';
+// import AddProductForm from '../AddProduct/AddProductForm';
 
 const SellerDashboard = () => {
-  const [activeTab, setActiveTab] = useState('dashboard');
-  const navigate = useNavigate();
+  // const [activeTab, setActiveTab] = useState('dashboard');
+  // const navigate = useNavigate();
   const recentOrders = [
     { id: '1', product: 'Wireless Earbuds', price: 1999, status: 'Processing' },
     { id: '2', product: 'Smart Watch', price: 2499, status: 'Shipped' },
@@ -115,10 +115,11 @@ const SellerDashboard = () => {
             Add Product
           </Link> */}
           <button 
-        onClick={() => navigate('/AddProduct')}
+        // onClick={() => navigate('/AddProduct')}
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-       + Add New Product
+        <Link to="/AddProduct"> + Add New Product</Link>
+      
       </button>
 
         </div>

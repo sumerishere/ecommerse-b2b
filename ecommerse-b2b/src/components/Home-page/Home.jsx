@@ -1,5 +1,5 @@
 import "./Home.css";
-import { useState, useEffect} from "react";
+import { useState} from "react";
 import Slider from "react-slick";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Link,useNavigate } from "react-router-dom";
@@ -8,32 +8,32 @@ import LoginForm from "../Login-form/LoginForm";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { User } from "lucide-react";
+// import { User } from "lucide-react";
 import Animation from "../Animatation/Animation";
 
 
-const Home = ({ onLogout, cart }) => {
+const Home = ({ cart }) => {
   const [loginClicked, setLoginClicked] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [userData, setUserData] = useState(null);
-  const navigate = useNavigate();
+  // const [userData, setUserData] = useState(null);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedUserData = localStorage.getItem('userData');
-    if (storedUserData) {
-      setUserData(JSON.parse(storedUserData));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUserData = localStorage.getItem('userData');
+  //   if (storedUserData) {
+  //     setUserData(JSON.parse(storedUserData));
+  //   }
+  // }, []);
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    // localStorage.removeItem('userData');
-    // localStorage.removeItem('isAuthenticated');
-    setUserData(null);
-    onLogout();
-    toast.info('Logged out successfully');
-    navigate('/login');
-  };
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   // localStorage.removeItem('userData');
+  //   // localStorage.removeItem('isAuthenticated');
+  //   setUserData(null);
+  //   onLogout();
+  //   toast.info('Logged out successfully');
+  //   navigate('/login');
+  // };
 
   // Carousel settings
   const carouselSettings = {

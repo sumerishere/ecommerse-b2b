@@ -20,10 +20,10 @@ const Animation = () => {
           <rect x="120" y="20" width="40" height="40" fill="#3b82f6" rx="5" />
           <circle cx="30" cy="60" r="15" fill="#1e3a8a" />
           <circle cx="90" cy="60" r="15" fill="#1e3a8a" />
-          <text x="12" y="16" fill="white" font-size="10">
+          <text x="12" y="16" fill="white" fontSize="10">
             Bulkify B2B
           </text>
-          <text x="12" y="36" fill="white" font-size="13">
+          <text x="12" y="36" fill="white" fontSize="13">
            Ready! to Deliver
           </text>
         </g>
@@ -38,7 +38,7 @@ const Animation = () => {
             
           />
           <rect x="300" y="200" width="40" height="40" fill="#3b82f6" rx="5" />
-          <path d="M300 220 L340 220" stroke="white" stroke-width="2" />
+          <path d="M300 220 L340 220" stroke="white" strokeWidth="2" />
        
         </g>
 
@@ -52,7 +52,7 @@ const Animation = () => {
             repeatCount="indefinite"
           />
           <rect x="400" y="180" width="40" height="40" fill="#3b82f6" rx="5" />
-          <path d="M400 200 L440 200" stroke="white" stroke-width="2" />
+          <path d="M400 200 L440 200" stroke="white" strokeWidth="2" />
         </g>
 
         <g>
@@ -78,11 +78,11 @@ const Animation = () => {
             x2="580"
             y2="250"
             stroke="#3b82f6"
-            stroke-width="2"
-            stroke-dasharray="5,5"
+            strokeWidth="2"
+            strokeDasharray="5,5"
           >
             <animate
-              attributeName="stroke-dashoffset"
+              attributeName="strokeDashoffset"
               from="0"
               to="20"
               dur="1s"
