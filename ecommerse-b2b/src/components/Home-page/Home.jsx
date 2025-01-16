@@ -189,28 +189,36 @@ const Home = ({ cart }) => {
 
 
       {/* Carousel Section */}
-      <section id="carousel" className="py-10">
+      <section id="carousel" className="py-10 ">
         <div className="container mx-auto px-6">
           <Slider {...carouselSettings}>
             <div className="h-60">
               <img
-                src="	https://rukminim2.flixcart.com/fk-p-flap/1010/170/image/ebe650f1bd18e588.jpg?q=20"
+                src="	https://www.jiomart.com/images/cms/offers/1707382914_910x380.jpg"
                 alt="Featured Product 1"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-fit"
               />
             </div>
             <div className="h-60">
               <img
-                src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/53dcf24ecc20bf27.jpg?q=20"
+                src="https://cdn.godrej.com/img/Category/5102021Godrejvideothumbnail1920x600_05121902.jpg"
                 alt="Featured Product 2"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-fit"
               />
             </div>
             <div className="h-60">
               <img
-                src="	https://rukminim2.flixcart.com/fk-p-flap/1010/170/image/1e5f2e97e448cee0.jpg?q=20"
+                src="	https://images-eu.ssl-images-amazon.com/images/G/31/img24/TVs/Abhilasha/redm/MOB_banner_1242X450.jpg"
                 alt="Featured Product 3"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-fit"
+              />
+            </div>
+
+            <div className="h-60">
+              <img
+                src="https://aethonworld.com/cdn/shop/files/aethon_visionbuds_banner_56cbc693-1008-4ece-bb52-33ad53bd7fed.jpg?v=1725020539&width=3840"
+                alt="Featured Product 3"
+                className="w-full h-full object-fit"
               />
             </div>
           </Slider>

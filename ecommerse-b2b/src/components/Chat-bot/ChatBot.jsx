@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BotMessageSquare, Send, Minimize2, X, ChevronUp } from 'lucide-react';
 
 const ChatbotContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([
     { 
@@ -16,6 +17,21 @@ const ChatbotContainer = () => {
     }
   ]);
 
+
+  useEffect(() => {
+    // Listen for hide/show events
+    const handleHide = () => setIsVisible(false);
+    const handleShow = () => setIsVisible(true);
+
+    window.addEventListener('HIDE_CHATBOT', handleHide);
+    window.addEventListener('SHOW_CHATBOT', handleShow);
+
+    return () => {
+      window.removeEventListener('HIDE_CHATBOT', handleHide);
+      window.removeEventListener('SHOW_CHATBOT', handleShow);
+    };
+  }, []);
+  
   const formatTimestamp = (date) => {
     return date.toLocaleString('en-US', {
       month: 'short',
@@ -79,6 +95,11 @@ const ChatbotContainer = () => {
       </button>
     );
   }
+
+  
+
+  // Return null if chatbot should be hidden
+  if (!isVisible) return null;
 
   return (
     <div className={`fixed right-4 bottom-4 bg-white rounded-lg shadow-xl transition-all duration-300 ${

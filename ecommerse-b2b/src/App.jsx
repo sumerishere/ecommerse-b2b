@@ -18,15 +18,14 @@ import AddProductForm from "./components/AddProduct/AddProductForm";
 import ElectronicItems from "./components/Categories/ElectronicIteams";
 import CartPage from "./components/Cart/CartPage";
 import ChatbotContainer from "./components/Chat-bot/ChatBot";
+import NotFound from "./components/Error-page/NotFound";
 
-// Wrapper component to conditionally render ChatbotContainer
 const ChatbotWrapper = () => {
   const location = useLocation();
 
-  if (
-    location.pathname === "/Registration" 
-  ) 
-  {
+  const is404 = !location.pathname.match(/^\/($|Dashboard|AboutUs|seller|AddProduct|electronicItems|cart|login)/);
+
+  if (location.pathname === "/Registration" || is404) {
     return null;
   }
   return <ChatbotContainer />;
@@ -73,6 +72,7 @@ function App() {
         <Route path="/seller" element={<SellerDashboard />} />
         <Route path="/AddProduct" element={<AddProductForm />} />
         <Route path="/Registration" element={<Registration />} />
+        <Route path="*" element={<NotFound />} />
 
         <Route
           path="/electronicItems"
@@ -84,7 +84,6 @@ function App() {
           element={<CartPage cart={cart} setCart={setCart} />}
         />
         <Route path="/login" element={<LoginForm />} />
-
       </Routes>
       <ChatbotWrapper />
     </Router>
