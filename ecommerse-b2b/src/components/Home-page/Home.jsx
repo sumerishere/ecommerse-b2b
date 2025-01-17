@@ -2,13 +2,12 @@ import "./Home.css";
 import { useState} from "react";
 import Slider from "react-slick";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Scroller from "../Infinite-scroller/Scroller";
 import LoginForm from "../Login-form/LoginForm";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { User } from "lucide-react";
 import Animation from "../Animatation/Animation";
 
 
@@ -194,21 +193,21 @@ const Home = ({ cart }) => {
           <Slider {...carouselSettings}>
             <div className="h-60">
               <img
-                src="	https://www.jiomart.com/images/cms/offers/1707382914_910x380.jpg"
+                src="	https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d49caf7f1079a44e.jpg?q=20"
                 alt="Featured Product 1"
                 className="w-full h-full object-fit"
               />
             </div>
             <div className="h-60">
               <img
-                src="https://cdn.godrej.com/img/Category/5102021Godrejvideothumbnail1920x600_05121902.jpg"
+                src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/500f9504445ddae6.jpeg?q=20"
                 alt="Featured Product 2"
                 className="w-full h-full object-fit"
               />
             </div>
             <div className="h-60">
               <img
-                src="	https://images-eu.ssl-images-amazon.com/images/G/31/img24/TVs/Abhilasha/redm/MOB_banner_1242X450.jpg"
+                src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/aa7d5b58b26ff5d8.jpg?q=20"
                 alt="Featured Product 3"
                 className="w-full h-full object-fit"
               />
@@ -216,7 +215,7 @@ const Home = ({ cart }) => {
 
             <div className="h-60">
               <img
-                src="https://aethonworld.com/cdn/shop/files/aethon_visionbuds_banner_56cbc693-1008-4ece-bb52-33ad53bd7fed.jpg?v=1725020539&width=3840"
+                src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/a79ae9fee2e76cfe.jpeg?q=20"
                 alt="Featured Product 3"
                 className="w-full h-full object-fit"
               />

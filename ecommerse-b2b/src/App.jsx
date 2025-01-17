@@ -19,6 +19,7 @@ import ElectronicItems from "./components/Categories/ElectronicIteams";
 import CartPage from "./components/Cart/CartPage";
 import ChatbotContainer from "./components/Chat-bot/ChatBot";
 import NotFound from "./components/Error-page/NotFound";
+import Invoice from "./components/invoice-component/Invoice";
 
 const ChatbotWrapper = () => {
   const location = useLocation();
@@ -73,6 +74,7 @@ function App() {
         <Route path="/AddProduct" element={<AddProductForm />} />
         <Route path="/Registration" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/Invoice" element={<Invoice/>} />
 
         <Route
           path="/electronicItems"

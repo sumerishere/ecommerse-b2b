@@ -118,8 +118,11 @@ const SellerDashboard = () => {
         // onClick={() => navigate('/AddProduct')}
         className="bg-blue-500 text-white px-4 py-2 rounded"
       >
-        <Link to="/AddProduct"> + Add New Product</Link>
-      
+        <Link to="/AddProduct"> + Add New Product</Link>      
+      </button>
+
+      <button className="bg-blue-500 text-white m-4 px-4 py-2 rounded">
+        <Link to="/Invoice">Invoice</Link>
       </button>
 
         </div>

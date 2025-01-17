@@ -48,7 +48,7 @@ const items = [
     id: 12,
     title:
       "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-    price: 114,
+    price: 134,
     description:
       "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
     category: "electronics",

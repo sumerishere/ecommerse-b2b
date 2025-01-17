@@ -38,8 +38,7 @@ const Animation = () => {
             
           />
           <rect x="300" y="200" width="40" height="40" fill="#3b82f6" rx="5" />
-          <path d="M300 220 L340 220" stroke="white" strokeWidth="2" />
-       
+          <path d="M300 220 L340 220" stroke="white" strokeWidth="4" />
         </g>
 
         <g id="box2">
@@ -52,11 +51,11 @@ const Animation = () => {
             repeatCount="indefinite"
           />
           <rect x="400" y="180" width="40" height="40" fill="#3b82f6" rx="5" />
-          <path d="M400 200 L440 200" stroke="white" strokeWidth="2" />
+          <path d="M400 200 L440 200" stroke="white" strokeWidth="4" />
         </g>
 
         <g>
-          <rect x="100" y="150" width="80" height="200" fill="#94a3b8" />
+          <rect x="100" y="150" width="80" height="250"  fill="#94a3b8" />
           <rect x="120" y="170" width="20" height="20" fill="white" />
           <rect x="150" y="170" width="20" height="20" fill="white" />
           <rect x="120" y="200" width="20" height="20" fill="white" />
@@ -64,7 +63,7 @@ const Animation = () => {
         </g>
 
         <g>
-          <rect x="600" y="100" width="100" height="250" fill="#94a3b8" />
+          <rect x="600" y="100" width="100" height="280" fill="#94a3b8" />
           <rect x="620" y="120" width="25" height="25" fill="white" />
           <rect x="655" y="120" width="25" height="25" fill="white" />
           <rect x="620" y="155" width="25" height="25" fill="white" />

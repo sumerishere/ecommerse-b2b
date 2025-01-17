@@ -7,6 +7,7 @@ const AddProductForm = ({onClose}) => {
   const [formData, setFormData] = useState({
     productName: "",
     productDescription: "",
+    category:"",
     productPrice: "",
   });
   const [productImage, setProductImage] = useState(null);
@@ -37,15 +38,16 @@ const AddProductForm = ({onClose}) => {
     setFormData({
       productName: "",
       productDescription: "",
+      category:"",
       productPrice: "",
     });
     setProductImage(null);
     setImagePreview(null);
   };
 
-  const handleClose = () => {
-    navigate('/seller'); // Navigate back to seller dashboard
-  };
+  // const handleClose = () => {
+  //   navigate('/seller'); // Navigate back to seller dashboard
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -156,6 +158,24 @@ const AddProductForm = ({onClose}) => {
               onChange={handleChange}
               className="mt-1 block w-full border border-gray-300 rounded-md p-2"
               rows="3"
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="category"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Product Category <span className="text-red-500">*</span>
+            </label>
+            <input
+              id="category"
+              name="category"
+              type="text"
+              value={formData.category}
+              onChange={handleChange}
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2"
               required
             />
           </div>
